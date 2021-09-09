@@ -1,0 +1,179 @@
+body {
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: gotham;
+  src: url('Gotham-Font/Gotham-BookItalic.otf');
+}
+
+/*_________________________________Search Section____________________________________________*/
+.logo {
+  width: 80%;
+  margin-left: 7%;
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logoImg {
+  position: absolute;
+  width: 15%;
+  top: 3vw;
+  left: 20vw;
+}
+
+h1 {
+  font-size: 2.5vw;
+  margin-top: 7.5vw;
+  text-align: center;
+  font-family: gotham;
+  color: #434343;
+  display: inline-block;
+  margin-left: 180px;
+  line-height: 0;
+}
+
+.formContainer {
+  margin-top: 3vw;
+  position: relative;
+}
+
+.block {
+  width: 100%;
+  margin-top: 15px;
+}
+
+button.form-control {
+  width: fit-content;
+  padding: 7px 5px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: white;
+  font-size: 15px;
+  margin-left: 10px;
+  border: 0.5px solid gray;
+}
+
+button.form-control:hover {
+  box-shadow: 0px 0px 2px 2px gray;
+}
+
+input[type=text].form-control {
+  height: 36px;
+  width: 37%;
+  margin-left: 28%;
+  border-radius: 15px;
+  outline: none;
+  font-size: 17px;
+  padding-left: 5px;
+  border: 0.5px solid gray;
+}
+
+input[type=file].form-control {
+  margin-left: 28.5%;
+}
+
+#autocomplete {
+  position: absolute;
+  top: 40px;
+  width: 37.5%;
+  left: 28%;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  border: none;
+  visibility: hidden;
+}
+
+#autocomplete p {
+  padding-left: 10px;
+  border-bottom: 0.5px solid gray;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+#autocomplete p:last-child {
+  border: none;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#autocomplete p:first-child {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+#autocomplete p:hover {
+  cursor: pointer;
+  background-color: rgb(220, 220, 220);
+}
+
+
+/*_________________________________Result Section____________________________________________*/
+#did-you-mean{
+  width: 100%;
+  margin-top: -20px;
+}
+#did-you-mean p{
+  font-size: 25px;
+  font-style: italic;
+}
+#did-you-mean p span{
+  color: #3d84b8 !important;
+  text-decoration: underline;
+    cursor: pointer;
+}
+#imgSearchBtn {
+  margin-left: 19.8%;
+}
+
+input[type=text].form-control:focus {
+  box-shadow: 0px 0px 1px 1px #0645AD;
+  border: 1px solid #0645AD;
+}
+
+hr {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 10px;
+}
+
+#gridImages {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.gridItem {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.paging {
+  width: 100%;
+  text-align: center;
+}
+
+.paging p {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.number-1 {
+  color: red;
+}
+
+.paging p.prev {
+  visibility: hidden;
+}
+
+.textQuery, .queryTitle {
+  display: inline-block;
+}
+
+.textQuery {
+  font-style: italic;
+  padding-left: 5px;
+}

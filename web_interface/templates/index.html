@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Planet Meme</title>
+{% endblock %}
+
+{% block body %}
+<div class='logo'>
+  <img src="../static/logo.png" class='logoImg' />
+  <a href="/"><h1>The Meme Search Engine</h1></a>
+</div>
+<div class="formContainer">
+  <form action="/" method="POST" autocomplete="off" id="textForm">
+    <div class="block">
+      <input name='query' type="text" class="form-control" placeholder="Search..."  oninput="autoComplete(this.value)"
+      onblur="hideAutoComplete()"   onfocus="showAutoComplete()" id="textInput">
+      <button type="submit" class="form-control">Meme Search</button>
+    </div>
+  </form>
+  <form action="/" method="POST">
+    <div class="block">
+      <input name="image" type="file" class="form-control" accept="image/*">
+      <button type="submit" class="form-control" id="imgSearchBtn">Image Search</button>
+    </div>
+  </form>
+  <div id="autocomplete">
+  </div>
+</div>
+<hr />
+<div id="did-you-mean">
+  {% if alt_query|length>0 %}
+  <p class="Did-title">Did you mean: <span onclick = "submitCorrect()" id="correction">{{ alt_query}}</span> ?</p>
+  {% endif %}
+</div>
+<div class="queryContainer">
+  {% if image_query|length > 0 or text_query|length>0 %}
+  <h2 class="queryTitle">Query:</h2>
+  {% if image_query|length > 0 %}
+  <img style="width: 250px; height: 250px; display:block;" src="../static/Queries/{{image_query}}" />
+  {% elif text_query|length>0 %}
+  <h2 class="textQuery"> "<span id="userQuery">{{text_query}}</span>"</h2>
+  {% endif %}
+  <h2>Results:</h2>
+  <div id="gridImages">
+    {% for i in range(10) %}
+    <div class="gridItem">
+      <img style="width:100%;height: 250px" src="../static/images1/{{images[i]}}" alt="{{images[i]}}"
+      onclick = "relevanceFeedBack(this.alt)"/>
+    </div>
+    {% endfor %}
+  </div>
+  {% if images|length>10 %}
+  <div class="paging">
+    <p class="actions prev">Prev</p>
+    <span id="numberContainer">
+      {% for j in range(10) %}
+      <p class="page number-{{j+1}}">{{j+1}}</p>
+      {% endfor %}
+    </span>
+    <p class="actions next">Next</p>
+  </div>
+  {% endif %}
+  {% endif %}
+</div>
+
+{% endblock %}
